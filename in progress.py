@@ -21,7 +21,33 @@ for line in f:
         if 'hgt' in line:
             count += 1 
         if 'hcl' in line:
-            count += 1 
+            print('yes')
+            b = split.index ('hcl') 
+            if len(split[b + 1]) == 8:
+                place = line.index ('hcl')
+                print(line[place+4])
+                if line[place + 4] == '#':
+                    print('yes yes')
+                    x = 5 
+                    times = 0 
+                    while x <11:
+                        if line[place + x] == 'f':
+                            times += 1
+                        if line[place + x] == 'e':
+                            times += 1
+                        if line[place + x] == 'd':
+                            times += 1
+                        if line[place + x] == 'c':
+                            times += 1
+                        if line[place + x] == 'b':
+                            times += 1
+                        if line[place + x] == 'a':
+                            times += 1
+                        if line[place + x].isdigit ():
+	                        times += 1
+                        x += 1 
+                    if times == 6:
+                        count += 1
         if 'ecl' in line:
             c = 0
             if 'amb' in line:
@@ -49,6 +75,7 @@ for line in f:
             print(count)
     else:
         if count == 7:
+            print(line)
             total += 1
         count = 0 
 print('Part 2 ',total)
